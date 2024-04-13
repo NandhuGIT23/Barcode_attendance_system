@@ -6,6 +6,8 @@ import "./App.css";
 // import 'mdbreact/dist/css/mdb.css';
 // import 'mdbreact/dist/css/style.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import CsvDownloadButton from "react-json-to-csv";
+import moment from "moment-timezone";
 
 function Report() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -87,6 +89,29 @@ function Report() {
       <Link to="/" style={{ color: "aqua" }}>
         Home
       </Link>
+
+      {filteredData.length > 0 && (
+        <CsvDownloadButton
+          filename={
+            moment().tz("Asia/Kolkata").format().slice(0, 10) + "_student_data"
+          }
+          headers={[
+            "_id",
+            "Admission_no",
+            "Name",
+            "Semester",
+            "Dept",
+            "Course",
+            "Section",
+            "Register_no",
+            "Entry",
+            "_v",
+          ]}
+          delimiter=","
+          data={filteredData}
+        />
+      )}
+
       <form onSubmit={handleFormSubmit}>
         <input
           type="date"
