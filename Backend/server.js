@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -5,17 +7,14 @@ const cors = require("cors");
 const moment = require("moment-timezone");
 
 const app = express();
-const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
-  .connect(
-    "mongodb+srv://nandhavelan2003:8aMTayT9LTK20xUO@cluster0.oz3spl2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Connected to db & listening on port 5000!!!");
     });
   })

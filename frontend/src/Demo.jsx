@@ -6,8 +6,9 @@ import "./App.css";
 // import 'mdbreact/dist/css/mdb.css';
 // import 'mdbreact/dist/css/style.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import CsvDownloadButton from "react-json-to-csv";
 
-function Report() {
+function Demo() {
   const [selectedDate, setSelectedDate] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
@@ -87,6 +88,8 @@ function Report() {
       <Link to="/" style={{ color: "aqua" }}>
         Home
       </Link>
+      <CsvDownloadButton data={filteredData} />
+
       <form onSubmit={handleFormSubmit}>
         <input
           type="date"
@@ -110,4 +113,4 @@ function Report() {
   );
 }
 
-export default Report;
+export default Demo;
