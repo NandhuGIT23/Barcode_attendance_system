@@ -76,6 +76,7 @@ app.get("/student/:barcode", async (req, res) => {
 
 // Endpoint to store search details
 app.post("/entry", async (req, res) => {
+  console.log("req came");
   try {
     const {
       barcode,
