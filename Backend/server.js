@@ -12,9 +12,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(
+    "mongodb+srv://sonacse2425:Sona%40Cse%402425@studententry.6cwjonx.mongodb.net/?retryWrites=true&w=majority&appName=StudentEntry"
+  )
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(5000, () => {
       console.log("Connected to db & listening on port 5000!!!");
     });
   })
