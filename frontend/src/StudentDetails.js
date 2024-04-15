@@ -9,6 +9,7 @@ const StudentDetails = () => {
   const [barcode, setBarcode] = useState("");
   const [student, setStudent] = useState(null);
   const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const handleSearch = async (bar) => {
     console.log(barcode);
@@ -40,15 +41,18 @@ const StudentDetails = () => {
   };
 
   return (
-    <div>
-      <Link to="/report" style={{ color: "aqua" }}>
-        Report
-      </Link>
+    <div className="container-1">
+      <button className="report_btn">
+        <Link style={{ textDecoration: "none", color: "black" }} to="/report">
+          Report
+        </Link>
+      </button>
+
       <div className="input-group">
         <h1>Student Details</h1>
         <input
           autoFocus
-          style={{ width: "500px" }}
+          style={{ width: "70%" }}
           type="text"
           placeholder="Enter Barcode"
           value={barcode}
@@ -60,9 +64,9 @@ const StudentDetails = () => {
             }
           }}
         />
-        <button onClick={handleSearch} className="button primary">
+        {/* <button onClick={handleSearch} className="button primary">
           Search
-        </button>
+        </button> */}
         {error && <p>{error}</p>}
         {student && (
           <div>

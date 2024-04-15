@@ -1,18 +1,26 @@
 /* Premium Gradient Patterned Background */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
   height: 100vh;
-  width:100%;
+  width: 100%;
   background-image: linear-gradient(to right top, #4d88ff, #ff69b4);
   color: #fff;
+  overflow-x: hidden;
 }
 
-
+.report_btn {
+  background-color: white;
+  height: 30px;
+  width: 80px;
+  float: right;
+  margin: 10px;
+  /* position: absolute; */
+}
 
 .container {
   width: 80%;
@@ -32,21 +40,21 @@ body {
 h1 {
   color: #343a40;
   text-align: left;
-  font-size: 2.5rem; 
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 p {
   color: #6c757d;
-  font-size: 1rem; 
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 .input-group {
   margin-bottom: 20px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
-  
 }
 
 .input-group label {
@@ -94,10 +102,3 @@ p {
 .button:hover {
   background-image: linear-gradient(to right, #4d88ff, #ff69b4);
 }
-
-
-
-
-
-
-

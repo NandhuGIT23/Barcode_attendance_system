@@ -136,3 +136,34 @@ app.get("/filter", async (req, res) => {
   //     console.error(err);
   //   });
 });
+
+// Simulated database of users
+const users = [
+  { username: "admin123", password: "admin123" },
+  { username: "user2", password: "password2" },
+];
+
+// Login endpoint
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Check if username and password are provided
+  if (!username || !password) {
+    return res
+      .status(400)
+      .json({ error: "Username and password are required." });
+  }
+
+  // Check if the provided username and password match any user in the database
+  const user = users.find(
+    (user) => user.username === username && user.password === password
+  );
+  console.log(user);
+
+  if (!user) {
+    return res.status(401).json({ error: "Invalid username or password." });
+  }
+
+  // If login successful, return success message or any user data you want to send
+  res.json({ message: "Login successful", user: user });
+});
