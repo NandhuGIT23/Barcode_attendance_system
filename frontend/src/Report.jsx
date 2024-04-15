@@ -86,12 +86,15 @@ function Report() {
 
   return (
     <div>
-      <Link to="/" style={{ color: "aqua" }}>
-        Home
-      </Link>
+      <button className="home_btn">
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          Home
+        </Link>
+      </button>
 
       {filteredData.length > 0 && (
         <CsvDownloadButton
+          className="csv_btn"
           filename={
             moment().tz("Asia/Kolkata").format().slice(0, 10) + "_student_data"
           }
@@ -114,12 +117,15 @@ function Report() {
 
       <form onSubmit={handleFormSubmit}>
         <input
+          style={{ marginBottom: "20px" }}
           type="date"
           id="datePicker"
           value={selectedDate}
           onChange={(e) => setSelectedDate(e.target.value)}
         />
-        <button type="submit">Filter</button>
+        <button style={{ marginLeft: "20px" }} type="submit">
+          Filter
+        </button>
       </form>
 
       <MDBDataTable

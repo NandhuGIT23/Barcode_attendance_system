@@ -13,6 +13,15 @@ body {
   overflow-x: hidden;
 }
 
+.csv_btn {
+  margin: 20px;
+}
+
+.home_btn {
+  margin: 20px;
+  /* background-color: white; */
+}
+
 .report_btn {
   background-color: white;
   height: 30px;
