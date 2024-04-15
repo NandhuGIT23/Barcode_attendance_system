@@ -17,12 +17,12 @@ const StudentDetails = () => {
     // console.log(currentTimeIST.toString());
 
     try {
-      const response = await axios.get(`http://localhost:5000/student/${bar}`);
+      const response = await axios.get(`https://barcode-attendance-system.onrender.com/student/${bar}`);
       setStudent(response.data);
       setError(null);
 
       // Send search details to the server
-      await axios.post("http://localhost:5000/entry", {
+      await axios.post("https://barcode-attendance-system.onrender.com/entry", {
         barcode: response.data.barcode,
         name: response.data.name,
         course: response.data.course,

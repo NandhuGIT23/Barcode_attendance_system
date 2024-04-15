@@ -62,7 +62,7 @@ function Report() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/filter?date=${selectedDate}`
+        `https://barcode-attendance-system.onrender.com/filter?date=${selectedDate}`
       );
       if (!response.ok) {
         throw new Error("Network response was not ok");
