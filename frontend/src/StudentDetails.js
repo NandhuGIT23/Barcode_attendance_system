@@ -6,6 +6,35 @@ import { Link } from "react-router-dom";
 import "./App.css";
 
 const StudentDetails = () => {
+  const lateralEntry = [
+    "22ECEBE224",
+    "22ECEBE211",
+    "22ECEBE210",
+    "22ECEBE218",
+    "22ECEBE217",
+    "22ECEBE216",
+    "22ECEBE221",
+    "22ECEBE220",
+    "22ECEBE223",
+    "22ECEBE222",
+    "22ECEBE215",
+    "22ECEBE227",
+    "22ECEBE226",
+    "21ECEBE239",
+    "21ECEBE229",
+    "21ECEBE245",
+    "21ECEBE231",
+    "21ECEBE241",
+    "21ECEBE230",
+    "21ECEBE240",
+    "21ECEBE238",
+    "21ECEBE243",
+    "21ECEBE246",
+    "21ECEBE244",
+    "21ECEBE236",
+    "21ECEBE223",
+    "21ECEBE237",
+  ];
   const [barcode, setBarcode] = useState("");
   const [student, setStudent] = useState(null);
   const [error, setError] = useState(null);
@@ -18,11 +47,13 @@ const StudentDetails = () => {
 
     try {
       const response = await axios.get(`https://barcode-attendance-system.onrender.com/student/${bar}`);
+      // const response = await axios.get(`http://localhost:5000/student/${bar}`);
       setStudent(response.data);
       setError(null);
 
       // Send search details to the server
       await axios.post("https://barcode-attendance-system.onrender.com/entry", {
+      // await axios.post("http://localhost:5000/entry", {
         barcode: response.data.barcode,
         name: response.data.name,
         course: response.data.course,
@@ -60,7 +91,11 @@ const StudentDetails = () => {
             var bar = e.target.value;
             setBarcode(bar);
             if (bar.length === 10) {
-              handleSearch(bar);
+              if (lateralEntry.includes(bar.slice(0, 10))) {
+                handleSearch(bar + "L");
+              } else {
+                handleSearch(bar);
+              }
             }
           }}
         />
